@@ -1,6 +1,6 @@
 {
   "name": "create-clone-class",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "The module for creating clone of ES6 class",
   "main": "lib/createCloneClass.js",
   "module": "es/createCloneClass.js",
