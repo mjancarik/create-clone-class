@@ -5,6 +5,8 @@
 [![NPM package version](https://img.shields.io/npm/v/create-clone-class/latest.svg)](https://www.npmjs.com/package/create-clone-class)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+The module create new class as a clone from your defined ES2015 class. It's very rare production case, but in some test case it can help where you want to isolate your tests.
+
 ## Installation
 
 ```bash
@@ -40,3 +42,7 @@ const original = new A('original');
 clone.method(); // returns 'clone';
 original.method(); // returns 'override original';
 ```
+
+# Examples
+
+1. https://github.com/mjancarik/shallow-with-context/blob/master/src/shallowWithContext.js#L84
