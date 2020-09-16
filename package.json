@@ -10,7 +10,8 @@
   },
   "scripts": {
     "preversion": "npm test && npm run lint && npm run build",
-    "postversion": "npm run build && npm run changelog && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "postversion": "npm run build && npm run changelog && git push && git push --tags && npm publish",
     "lint": "node_modules/.bin/eslint -c ./.eslintrc.js --fix './**/*.{js,jsx}' --ignore-path ./.prettierignore",
     "dev": "node_modules/.bin/rollup -c rollup.config.js --watch",
     "test": "node_modules/.bin/jest --no-watchman",
