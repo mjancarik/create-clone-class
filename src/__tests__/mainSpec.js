@@ -1,4 +1,4 @@
-import createCloneClass from '../main';
+import { createCloneClass } from '../main';
 import createClasses from './createClasses';
 
 describe('method createCloneClass', () => {
@@ -32,5 +32,38 @@ describe('method createCloneClass', () => {
     const d = new CloneD();
 
     expect(d.method()).toEqual('D');
+  });
+
+  it('should create clone multiple times for same ClassConstructor', () => {
+    const { B } = createClasses();
+
+    const CloneB = createCloneClass(B);
+    const CloneB2 = createCloneClass(B);
+
+    B.prototype.method = () => 'not B';
+
+    const b = new CloneB('A');
+    const b2 = new CloneB2('A');
+
+    expect(b.superMethod()).toEqual('A');
+    expect(b.method()).toEqual('B A');
+    expect(b2.method()).toEqual('B A');
+  });
+
+  it('should resolve right instanceof for cloned class', () => {
+    const { A, B } = createClasses();
+
+    const CloneB = createCloneClass(B);
+
+    B.prototype.method = () => 'not B';
+
+    const b = new CloneB('A');
+    const bb = new B('A');
+
+    expect(b instanceof B).toEqual(true);
+    expect(b instanceof A).toEqual(true);
+    expect(bb instanceof CloneB).toEqual(true);
+    expect(bb instanceof B).toEqual(true);
+    expect(bb instanceof A).toEqual(true);
   });
 });

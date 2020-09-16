@@ -1,7 +1,7 @@
 import {
   objectKeepUnmock,
   setGlobalKeepUnmock,
-  setGlobalMockMethod
+  setGlobalMockMethod,
 } from 'to-mock';
 
 setGlobalMockMethod(jest.fn);

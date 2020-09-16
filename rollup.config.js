@@ -1,21 +1,37 @@
-import nodeResolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import run from '@rollup/plugin-run';
 
-const env = process.env.NODE_ENV;
+const watchMode = process.env.ROLLUP_WATCH === 'true';
+
 const config = {
   input: 'src/main.js',
+  treeshake: {
+    moduleSideEffects: 'no-external',
+  },
   plugins: [
-    babel({
-      exclude: 'node_modules/**',
-      externalHelpers: true
-    }),
     nodeResolve(),
-    commonjs()
-  ]
+    commonjs(),
+    watchMode &&
+      run({
+        execArgv: ['-r', 'source-map-support/register'],
+      }),
+  ],
+  watch: {
+    include: 'src/**',
+  },
+  output: [
+    {
+      file: `./dist/createCloneClass.cjs`,
+      format: 'cjs',
+      exports: 'named',
+    },
+    {
+      file: `./dist/createCloneClass.mjs`,
+      format: 'esm',
+      exports: 'named',
+    },
+  ],
 };
 
-if (env === 'es' || env === 'cjs') {
-  config.output = { format: env };
-}
 export default config;
