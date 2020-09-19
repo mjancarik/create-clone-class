@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/mjancarik/create-clone-class/compare/v0.2.0...v0.2.1) (2020-09-19)
+
+
+### Bug Fixes
+
+* added js file extension to dist ([5d75595](https://github.com/mjancarik/create-clone-class/commit/5d75595832a00704aa0bd3eabd6f73c7f3855bb3))
+
+
+
 # [0.2.0](https://github.com/mjancarik/create-clone-class/compare/0.1.0...0.2.0) (2020-09-16)
 
 
