@@ -22,6 +22,11 @@ const config = {
   },
   output: [
     {
+      file: `./dist/createCloneClass.js`,
+      format: 'cjs',
+      exports: 'named',
+    },
+    {
       file: `./dist/createCloneClass.cjs`,
       format: 'cjs',
       exports: 'named',

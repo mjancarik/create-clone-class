@@ -2,12 +2,8 @@
   "name": "create-clone-class",
   "version": "0.2.0",
   "description": "The module for creating clone of ES6 class",
-  "main": "dist/createCloneClass.cjs",
-  "module": "dist/createCloneClass.mjs",
-  "exports": {
-    "import": "./dist/createCloneClass.mjs",
-    "require": "./dist/createCloneClass.cjs"
-  },
+  "main": "dist/createCloneClass",
+  "module": "dist/createCloneClass",
   "scripts": {
     "preversion": "npm test && npm run lint && npm run build",
     "version": "npm run changelog && git add CHANGELOG.md",
